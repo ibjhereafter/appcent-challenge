@@ -9,7 +9,6 @@ const Footer = () => {
                     <footer>
                         <div className="centerElement">Copyright &copy; All Rights Reserved - movieNerds 2021</div>
                     </footer>
-
                 </div>
             </div>
         </Fragment>
