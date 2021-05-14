@@ -15,6 +15,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+if (process.env.NODE_ENV === 'development') {
+  app.use(express.static(path.resolve(__dirname, '../frontend/build')));
+  app.get("*", (req, res) => {
+    return res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
+  });
+
+  app.get('/*', (req, res) => {
+
+    return res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
+  });
+}
+
 const PORT = process.env.PORT || 3001;
 
 app.listen(`${PORT}`, () => {

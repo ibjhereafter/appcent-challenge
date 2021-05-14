@@ -1,0 +1,19 @@
+.centerElement {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+.bgColor {
+    background-color: #1D3557;
+}
+
+footer div {
+    color: white;
+}
+
+.pushDown {
+    position: relative;
+    top: 800px;
+
+}

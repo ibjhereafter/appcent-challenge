@@ -3,6 +3,7 @@ import { Router, Switch, Route } from 'react-router-dom';
 
 import history from './utilities/history';
 import Header from './layout/Header';
+import Footer from "./layout/Footer";
 import ProductList from "./screens/ProductList";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
           <Switch>
               <Route path="/" component={ProductList} exact />
           </Switch>
+          <Footer />
       </Router>
   );
 };

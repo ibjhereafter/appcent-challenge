@@ -7,6 +7,8 @@ const Header = () => {
         <Fragment>
             <div className="ui stackable grid">
                 <div className="ui sixteen column stackable">
+                    <header>
+
                         <div className="ui backgroundColor secondary pointing menu stackable">
                             <div className="ui container">
 
@@ -38,6 +40,8 @@ const Header = () => {
                             </div>
 
                         </div>
+                    </header>
+
                 </div>
             </div>
         </Fragment>
