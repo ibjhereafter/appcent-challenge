@@ -25,7 +25,11 @@ const Header = () => {
 
                                     <div>
                                         <Link to="/users/login">
-                                            <div className="item">LOGIN</div>
+
+                                            <div className="item">
+                                                <i className="user icon" />
+                                                LOGIN
+                                            </div>
                                         </Link>
                                     </div>
 
