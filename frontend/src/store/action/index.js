@@ -1,0 +1,1 @@
+export { startGetMovieList } from './movieActionCreator';

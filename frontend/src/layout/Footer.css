@@ -1,7 +1,8 @@
 .centerElement {
     display: flex !important;
     justify-content: center !important;
-    margin: 0 auto !important;
+    align-items: center !important;
+    height: 70px;
 }
 
 .bgColor {
@@ -14,5 +15,5 @@ footer div {
 
 .pushDown {
     position: relative;
-    top: 800px;
+    top: 170px;
 }

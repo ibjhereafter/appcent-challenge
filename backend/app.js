@@ -15,9 +15,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.get('/moviedb/key', (req, res) => {
+  try {
+    return res.status(200).json({ key: process.env.VIDEO_API_KEY });
+
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+})
+
 if (process.env.NODE_ENV === 'development') {
   app.use(express.static(path.resolve(__dirname, '../frontend/build')));
-  app.get("*", (req, res) => {
+  app.get('*', (req, res) => {
     return res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
   });
 

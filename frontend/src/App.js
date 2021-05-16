@@ -4,14 +4,14 @@ import { Router, Switch, Route } from 'react-router-dom';
 import history from './utilities/history';
 import Header from './layout/Header';
 import Footer from "./layout/Footer";
-import ProductList from "./screens/ProductList";
+import VideoList from "./screens/VideoList";
 
 const App = () => {
   return (
       <Router history={history}>
           <Header />
           <Switch>
-              <Route path="/" component={ProductList} exact />
+              <Route path="/" component={VideoList} exact />
           </Switch>
           <Footer />
       </Router>
