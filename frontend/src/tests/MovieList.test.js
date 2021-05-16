@@ -33,7 +33,7 @@ describe('test the number of nodes and their content', () => {
 
     test('render the text "POPULAR MOVIES"', () => {
         expect(wrapped.render().text()).toContain('POPULAR MOVIES');
-    })
+    });
 });
 
 describe('test the number of instances per component', () => {
