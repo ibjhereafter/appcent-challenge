@@ -1,5 +1,5 @@
 import './PaginationButtons.css';
-import React, {Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 const PaginationButtons = (props) => {

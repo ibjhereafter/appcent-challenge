@@ -5,29 +5,30 @@ const Jumbotron = () => {
     return (
         <Fragment>
             <div className="ui raised segment bgColor">
-                <p className="lineHeight">
-                    <blockquote>
-                        “TO BE A FILMMAKER, YOU HAVE TO LEAD. <br/>
-                        YOU HAVE TO BE PSYCHOTIC IN YOUR DESIRE TO DO SOMETHING. <br/>
-                        PEOPLE ALWAYS LIKE THE EASY ROUTE. YOU HAVE TO PUSH VERY HARD TO GET SOMETHING UNUSUAL, SOMETHING DIFFERENT.”
-                    </blockquote>
-                    <strong>
-                        <pre>
-                            - Danny Boyle
-                        </pre>
-                    </strong>
-                </p>
+                <blockquote className="lineHeight">
+                    <i>
+                        “To be a film maker, you have to lead. <br/>
+                        You have to be psychotic in your desire to do something. <br/>
+                        People always like the easy route. You have to push very hard to get something unusual, something different.”
+                    </i>
 
-                <p>
-                    <blockquote>
-                        “IF IT’S A GOOD MOVIE, THE SOUND COULD GO OFF AND THE AUDIENCE WOULD STILL HAVE A PRETTY CLEAR IDEA OF WHAT WAS GOING ON.”
-                    </blockquote>
-                    <strong>
-                        <pre>
-                            - Alfred Hitchcock
-                        </pre>
-                    </strong>
-                </p>
+                </blockquote>
+                <strong>
+                    <cite>
+                        - Danny Boyle
+                    </cite>
+                </strong>
+
+                <blockquote className="lineHeight">
+                    <i>
+                        “If it's a good movie, the sound could go off and the audience would still have a pretty clear idea of what was going on.”
+                    </i>
+                </blockquote>
+                <strong>
+                    <cite>
+                        - Alfred Hitchcock
+                    </cite>
+                </strong>
             </div>
         </Fragment>
     )

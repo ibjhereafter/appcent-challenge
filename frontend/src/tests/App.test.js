@@ -4,7 +4,7 @@ import Header from '../layout/Header';
 import Footer from "../layout/Footer";
 import { shallow } from 'enzyme';
 
-let wrapped = undefined;
+let wrapped;
 
 beforeEach(() => {
     wrapped = shallow(<App />);

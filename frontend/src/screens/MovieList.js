@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 import Error from '../utilities/Error';
 import Loader from '../utilities/Loader';
-import PaginationButtons from "../utilities/PaginationButtons";
+import PaginationButtons from '../utilities/PaginationButtons';
 import Jumbotron from "../utilities/Jumbotron";
 import { startGetMovieList } from '../store/action/index';
-import history from "../utilities/history";
+import history from '../utilities/history';
 
 const MovieList = (props) => {
     const [numberOfMoviesPerPage] = useState(15);
