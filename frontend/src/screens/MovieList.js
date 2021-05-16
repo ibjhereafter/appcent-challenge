@@ -1,4 +1,4 @@
-import './VideoList.css';
+import './MovieList.css';
 import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 import Error from '../utilities/Error';
 import Loader from '../utilities/Loader';
 import PaginationButtons from "../utilities/PaginationButtons";
+import Jumbotron from "../utilities/Jumbotron";
 import { startGetMovieList } from '../store/action/index';
 import history from "../utilities/history";
 
-const VideoList = (props) => {
+const MovieList = (props) => {
     const [numberOfMoviesPerPage] = useState(15);
     const [currentPage, setCurrentPage] = useState(1);
     const { loading, error, movies, startGetMovieList } = props;
@@ -63,6 +64,7 @@ const VideoList = (props) => {
         <Fragment>
             <div className="ui grid container">
                 <div className="ui sixteen column">
+                    <Jumbotron />
                     {
                         error ? <Error /> : (<h1 className="ui header">POPULAR MOVIES</h1>)
                     }
@@ -88,4 +90,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, { startGetMovieList })(VideoList);
+export default connect(mapStateToProps, { startGetMovieList })(MovieList);

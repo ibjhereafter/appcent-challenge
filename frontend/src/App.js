@@ -4,7 +4,7 @@ import { Router, Switch, Route } from 'react-router-dom';
 import history from './utilities/history';
 import Header from './layout/Header';
 import Footer from "./layout/Footer";
-import VideoList from "./screens/VideoList";
+import VideoList from "./screens/MovieList";
 
 const App = () => {
   return (
