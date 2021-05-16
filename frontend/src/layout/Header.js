@@ -18,22 +18,26 @@ const Header = () => {
                                     </Link>
                                 </div>
 
-                                <div className="ui two item menu stackable">
-                                    <div>
-                                        <Link to="/about">
-                                            <div className="item menuWidth">ABOUT US</div>
-                                        </Link>
+                                <div className="ui four item menu stackable">
+                                    <div className="right menu">
+                                        <div>
+                                            <Link to="/about">
+                                                <div className="item menuWidth">ABOUT US</div>
+                                            </Link>
+                                        </div>
+
+                                        <div>
+                                            <Link to="/users/login">
+
+                                                <div className="item">
+                                                    <i className="user icon" />
+                                                    LOGIN
+                                                </div>
+                                            </Link>
+                                        </div>
                                     </div>
 
-                                    <div>
-                                        <Link to="/users/login">
 
-                                            <div className="item">
-                                                <i className="user icon" />
-                                                LOGIN
-                                            </div>
-                                        </Link>
-                                    </div>
 
                                 </div>
 

@@ -1,0 +1,12 @@
+.lineHeight {
+    line-height: 25px;
+}
+
+.fontWeight {
+    font-weight: bold;
+}
+
+button {
+    background-color: #A8DADC !important;
+    color: black !important;
+}
