@@ -6,6 +6,8 @@ import Header from './layout/Header';
 import Footer from "./layout/Footer";
 import VideoList from "./screens/MovieList";
 import MovieDetails from "./screens/MovieDetails";
+import Registration from "./screens/Registration";
+import Login from "./screens/Login";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
           <Switch>
               <Route path="/" component={VideoList} exact />
               <Route path="/movies/:id/details" component={MovieDetails} />
+              <Route path="/users/login" component={Login} />
+              <Route path="/users/registration" component={Registration} />
           </Switch>
           <Footer />
       </Router>
