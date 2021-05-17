@@ -40,4 +40,39 @@ export const startGetLogin = (credentials) => {
             }
         }
     }
+};
+
+const getLogOutMemberError = (action) => {
+    return {
+        type: actionTypes.GET_LOG_OUT_MEMBER_ERROR,
+        payload: action
+    }
+};
+
+const getLogOutMember = (action) => {
+    return {
+        type: actionTypes.GET_LOG_OUT_MEMBER,
+        payload: action
+    }
+};
+
+export const startGetLogOutMember = () => {
+    return async (dispatch) => {
+        try {
+            const url = '/users/logout';
+            await axios.post(url, {}, axiosOption);
+            localStorage.removeItem('loggedInUser');
+            dispatch(getLogOutMember({}));
+            history.push('/users/login');
+
+        } catch (error) {
+            if (error.response.status === 401 || error.response.status === 400) {
+                localStorage.removeItem('loggedInUser');
+                history.push('/users/login');
+            } else {
+                dispatch(getLogOutMemberError(error.response.data.error));
+            }
+
+        }
+    }
 }

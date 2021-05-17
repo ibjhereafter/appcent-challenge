@@ -68,6 +68,16 @@ userSchema.methods.generateValidCookieOption = function () {
     };
 };
 
+userSchema.methods.generateInValidCookieOption = function () {
+    const validity =  -1000 * (60 * 60);
+    return {
+        maxAge: validity,
+        httpOnly: true,
+        path: '/',
+        sameSite: 'lax'
+    };
+}
+
 const Users = mongoose.model('user', userSchema);
 
 module.exports = Users;

@@ -28,7 +28,7 @@ const Login = (props) => {
             startGetLogin(credentials);
         }
     }
-     console.log(errorMessage)
+
     return (
         <Fragment>
             <div className="ui stackable grid container">

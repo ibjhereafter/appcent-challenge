@@ -1,6 +1,7 @@
 const express = require('express');
 const usersRouter = express.Router();
 const User = require('../database/usersModel');
+const authenticate = require('../middleware/authentication');
 
 usersRouter.post('/users/register', async (req, res) => {
    try {
@@ -72,6 +73,28 @@ usersRouter.post('/users/login', async (req, res) => {
    } catch (error) {
        return res.status(500).json({ error: error.message });
    }
+});
+
+usersRouter.post('/users/logout', authenticate, async (req, res) => {
+    try {
+        if (!req.user) {
+            const error = new Error('Please, sign in!');
+            return res.status(401).json({ error: error.message });
+        }
+
+        const { _id } = req.user;
+        const user = await User.findById(_id);
+        user.token = undefined;
+        await user.save({ validateBeforeSave: false });
+
+        const invalidCookieOption = user.generateInValidCookieOption();
+        const loggedOutUser = user.hideSensitiveData(user);
+        res.cookie('jwtCookie', null, invalidCookieOption);
+        return res.status(200).json(loggedOutUser);
+
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
 });
 
 module.exports = usersRouter;

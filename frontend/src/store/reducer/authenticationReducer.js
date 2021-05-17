@@ -27,6 +27,21 @@ const authenticationReducer = (state = INITIAL_DATA, action) => {
                 loggedInUser: {}
             }
 
+        case actionTypes.GET_LOG_OUT_MEMBER:
+            return {
+                ...state,
+                loading: false,
+                error: false,
+                errorMessage: '',
+                loggedInUser: action.payload
+            }
+
+        case actionTypes.GET_LOG_OUT_MEMBER_ERROR:
+            return {
+                ...state,
+                errorMessage: action.payload
+            }
+
         default:
             return state;
     }

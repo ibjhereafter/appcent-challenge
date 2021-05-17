@@ -1,8 +1,64 @@
 import './Header.css';
 import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Header = () => {
+import history from "../utilities/history";
+
+const Header = (props) => {
+    const { loggedInUser } = props;
+
+    const userName = () => {
+        if (loggedInUser.name) {
+            return (
+                <Fragment>
+                    <strong>Hello</strong> { loggedInUser.name.toUpperCase() }
+                </Fragment>
+            )
+        } else {
+            return null;
+        }
+    };
+
+    const goToLogIn = () => {
+        history.push('/users/login');
+    }
+
+    const goToAboutUs = () => {
+        history.push('/aboutus');
+    }
+
+    const logOut = () => {
+        history.push('/users/logout');
+    }
+
+    const signedInOrLogOut = () => {
+        if (loggedInUser.name) {
+            return (
+                <Fragment>
+                    <button onClick={logOut} type="button" className="ui button">LOG OUT</button>
+                </Fragment>
+            )
+        } else {
+            return (
+                <Fragment>
+                    <button onClick={goToLogIn} type="button" className="ui button">
+                        <i className="user icon" />
+                        LOG IN
+                    </button>
+                </Fragment>
+            )
+        }
+    };
+
+    const aboutUs = () => {
+        return (
+            <Fragment>
+                <button onClick={goToAboutUs} type="button" className="ui button">ABOUT US</button>
+            </Fragment>
+        )
+    }
+
     return (
         <Fragment>
             <div className="ui stackable grid">
@@ -18,38 +74,34 @@ const Header = () => {
                                     </Link>
                                 </div>
 
-                                <div className="ui four item menu stackable">
+                                <div className="ui three item menu stackable">
                                     <div className="right menu">
-                                        <div>
-                                            <Link to="/about">
-                                                <div className="item menuWidth">ABOUT US</div>
-                                            </Link>
+                                        <div className="item menuWidth">
+                                            <div>{userName()}</div>
                                         </div>
 
-                                        <div>
-                                            <Link to="/users/login">
+                                        <div className="item menuWidth">
+                                            {aboutUs()}
+                                        </div>
 
-                                                <div className="item">
-                                                    <i className="user icon" />
-                                                    LOGIN
-                                                </div>
-                                            </Link>
+                                        <div className="item">
+                                            {signedInOrLogOut()}
                                         </div>
                                     </div>
-
-
-
                                 </div>
-
                             </div>
-
                         </div>
                     </header>
-
                 </div>
             </div>
         </Fragment>
     );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        loggedInUser: state.authentication.loggedInUser
+    }
+}
+
+export default connect(mapStateToProps)(Header);

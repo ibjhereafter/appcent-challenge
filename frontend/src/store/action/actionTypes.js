@@ -20,3 +20,6 @@ export const GET_LOGGED_IN_MEMBER_ERROR = 'GET_LOGGED_IN_MEMBER_ERROR';
 
 //###################################################################################
 
+export const GET_LOG_OUT_MEMBER = 'GET_LOG_OUT_MEMBER';
+export const GET_LOG_OUT_MEMBER_ERROR = 'GET_LOG_OUT_MEMBER_ERROR';
+
