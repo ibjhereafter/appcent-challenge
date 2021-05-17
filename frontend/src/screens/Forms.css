@@ -4,3 +4,6 @@
 .marginBottom {
     margin-bottom: 20px !important;
 }
+.registrationError {
+    color: red;
+}

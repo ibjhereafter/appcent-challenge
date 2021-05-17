@@ -1,8 +1,12 @@
 import './Forms.css'
 import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import pattern from "../utilities/regEx";
-const Registration = () => {
+import { startGetNewMemberRegistration } from '../store/action/index';
+
+const Registration = (props) => {
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('')
     const [ password, setPassword] = useState('');
@@ -18,6 +22,8 @@ const Registration = () => {
 
     const [ formError, setFormError ] = useState('');
     const [showFormError, setShowFormError ] = useState('hidden');
+
+    const { startGetNewMemberRegistration, errorMessage } = props;
 
     const onNameChange = (event) => {
         setName(event.target.value);
@@ -56,6 +62,8 @@ const Registration = () => {
                 email,
                 password
             };
+
+            startGetNewMemberRegistration(newUSer);
 
         }
     }
@@ -113,9 +121,8 @@ const Registration = () => {
                                 <button type="submit" className="ui button">SIGN IN</button>
                                 <p className={`ui red ${showFormError} message header`}>{formError}</p>
                             </form>
-
-
                             <p className="ui header">Are you already a movieNerds Member? <Link to="/users/login">Sign in here</Link></p>
+                            <h1 className="registrationError">{errorMessage}</h1>
                         </div>
                     </div>
                 </div>
@@ -124,4 +131,10 @@ const Registration = () => {
     );
 };
 
-export default Registration;
+const mapStateToProps = (state) => {
+    return {
+        errorMessage: state.registration.errorMessage
+    }
+}
+
+export default connect(mapStateToProps, { startGetNewMemberRegistration})(Registration);

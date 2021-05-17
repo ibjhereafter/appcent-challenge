@@ -53,6 +53,11 @@ userSchema.methods.generateToken = function (_id) {
     return jwt.sign({_id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRES_IN});
 };
 
+userSchema.methods.comparePasswords = async function (enteredPassword, existingPassword) {
+    return await bcrypt.compare(enteredPassword, existingPassword);
+};
+
+
 userSchema.methods.generateValidCookieOption = function () {
     const validity = 1000 * 60 * 60 * 5;
     return {
