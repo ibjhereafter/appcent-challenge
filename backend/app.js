@@ -30,7 +30,7 @@ app.get('/moviedb/key', (req, res) => {
   }
 })
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname, '../frontend/build')));
   app.get('*', (req, res) => {
     return res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
