@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 const AboutUs = () => {
+    document.title = 'About Us | movieNerds';
     return (
         <Fragment>
             <div className="ui container">

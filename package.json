@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "project for the recruitment to a frontend developer role",
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "start": "SET node backend/app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
   "keywords": [],
   "author": "Ibrahim Bakarr Jalloh",
   "license": "Appcent",
@@ -17,5 +20,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.9",
     "morgan": "^1.10.0"
-  }
+  },
+  "devDependencies": {}
 }

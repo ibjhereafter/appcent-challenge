@@ -11,6 +11,7 @@ import { startGetMovieList } from '../store/action/index';
 import history from '../utilities/history';
 
 const MovieList = (props) => {
+    document.title = 'Popular Movies | movieNerds';
     const [numberOfMoviesPerPage] = useState(15);
     const [currentPage, setCurrentPage] = useState(1);
     const { loading, error, movies, startGetMovieList } = props;

@@ -5,6 +5,7 @@ import { startGetLogOutMember } from '../store/action';
 
 
 const LogOut = (props) => {
+    document.title = 'Logout | movieNerds';
     const { startGetLogOutMember } = props;
 
     useEffect(() => {

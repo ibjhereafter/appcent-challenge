@@ -7,6 +7,7 @@ import history from "../utilities/history";
 
 
 const AddComment = (props) => {
+    document.title = `Write Comment | movieNerds`;
     const [ comment, setComment ] = useState('');
     const { errorMessage, startGetAddComment, clearAddCommentErrorMessage, loggedInUser } = props;
 

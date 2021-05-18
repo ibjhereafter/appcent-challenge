@@ -39,12 +39,17 @@ const MovieDetails = (props) => {
                                         <img width="350" src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} alt={movieDetails.overview}/>
                                     </div>
                                 </div>
+
                             </div>
 
-                            <div className="eight wide column row stackable">
+                            <div className="six wide column row stackable">
                                 <div className="column">
                                     <h1 className="ui header">{movieDetails.title} <span>({movieDetails.release_date.substring(0, 4)})</span></h1>
                                     {
+                                        document.title = `${movieDetails.title} | movieNerds`
+                                    }
+                                    {
+
                                         movieDetails.genres.map((genre) => {
                                             return (
                                                 <Fragment key={genre.id}>
@@ -82,12 +87,16 @@ const MovieDetails = (props) => {
                                         <Comments movieId={movieDetails.id}/>
                                     </div>
 
-                                    <button onClick={() => addComment(movieDetails.id)} type='button' className="ui blue button">ADD COMMNENT</button>
-
                                 </div>
 
                             </div>
-
+                            <div className="two wide column row">
+                                <div className="column">
+                                    <div style={{marginBottom: '50px'}}>
+                                        <button onClick={() => addComment(movieDetails.id)} type='button' className="ui blue button">ADD COMMENT</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </Fragment>
 

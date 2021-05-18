@@ -7,6 +7,7 @@ import pattern from "../utilities/regEx";
 import { startGetNewMemberRegistration } from '../store/action/index';
 
 const Registration = (props) => {
+    document.title = 'Join Us | movieNerds';
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('')
     const [ password, setPassword] = useState('');

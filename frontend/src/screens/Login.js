@@ -7,6 +7,7 @@ import history from "../utilities/history";
 import { startGetLogin } from '../store/action/index';
 
 const Login = (props) => {
+    document.title = 'Login | movieNerds';
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
