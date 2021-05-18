@@ -1,10 +1,11 @@
 import './Forms.css'
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import pattern from "../utilities/regEx";
 import { startGetNewMemberRegistration } from '../store/action/index';
+import history from "../utilities/history";
 
 const Registration = (props) => {
     document.title = 'Join Us | movieNerds';
@@ -24,7 +25,13 @@ const Registration = (props) => {
     const [ formError, setFormError ] = useState('');
     const [showFormError, setShowFormError ] = useState('hidden');
 
-    const { startGetNewMemberRegistration, errorMessage } = props;
+    const { startGetNewMemberRegistration, errorMessage, loggedInUser } = props;
+
+    useEffect(() => {
+        if (loggedInUser.name) {
+            history.push('/');
+        }
+    },[]);
 
     const onNameChange = (event) => {
         setName(event.target.value);
@@ -134,7 +141,8 @@ const Registration = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        errorMessage: state.registration.errorMessage
+        errorMessage: state.registration.errorMessage,
+        loggedInUser: state.authentication.loggedInUser
     }
 }
 
