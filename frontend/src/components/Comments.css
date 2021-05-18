@@ -1,0 +1,8 @@
+.marginBottom {
+    margin-bottom: 10px !important;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}

@@ -7,7 +7,7 @@ const axiosOption = {
     withCredentials: true
 };
 
-const getLogin = (action) => {
+export const getLogin = (action) => {
     return {
         type: actionTypes.GET_LOGGED_IN_MEMBER,
         payload: action

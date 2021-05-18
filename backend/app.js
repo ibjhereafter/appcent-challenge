@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const usersRouter = require('./routes/usersRouter');
+const commentRouter = require('./routes/commentsRoute');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(usersRouter);
+app.use(commentRouter);
 
 
 app.get('/moviedb/key', (req, res) => {

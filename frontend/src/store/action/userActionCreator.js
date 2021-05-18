@@ -2,6 +2,8 @@ import * as actionTypes from './actionTypes';
 import axios from "axios";
 import history from "../../utilities/history";
 
+import { getLogin } from "./authenticationActionCreator";
+
 const axiosOption = {
     mode: 'cors',
     withCredentials: true
@@ -27,9 +29,10 @@ export const startGetNewMemberRegistration = (newUser) => {
             const url = '/users/register';
             const { data } = await axios.post(url, newUser, axiosOption);
             dispatch(getNewMemberRegistration(data));
-            const loggedInUSer = getState().registration.newUser;
+            dispatch(getLogin(data));
+            const loggedInUser = getState().authentication.loggedInUser;
             localStorage.removeItem('loggedInUser');
-            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUSer));
+            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
             history.push('/');
 
         } catch (error) {

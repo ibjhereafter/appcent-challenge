@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 
-import { startGetLogOutMember } from '../store/action/index';
+import { startGetLogOutMember } from '../store/action';
 
 
 const LogOut = (props) => {

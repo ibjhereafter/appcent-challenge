@@ -1,8 +1,9 @@
 import './Forms.css'
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import history from "../utilities/history";
 import { startGetLogin } from '../store/action/index';
 
 const Login = (props) => {
@@ -12,7 +13,13 @@ const Login = (props) => {
     const [ formError, setFormError ] = useState('');
     const [ showFormError, setShowFormError ] = useState('hidden');
 
-    const { startGetLogin, errorMessage } = props;
+    const { startGetLogin, errorMessage, loggedInUser } = props;
+
+    useEffect(() => {
+        if (loggedInUser.name) {
+            history.push('/');
+        }
+    }, [loggedInUser]);
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -69,7 +76,8 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        errorMessage: state.authentication.errorMessage
+        errorMessage: state.authentication.errorMessage,
+        loggedInUser: state.authentication.loggedInUser
     }
 }
 

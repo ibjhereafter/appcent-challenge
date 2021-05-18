@@ -1,0 +1,8 @@
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+.segmentWidth {
+    width: 500px !important;
+}

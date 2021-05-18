@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import Loader from "../utilities/Loader";
 import Error from "../utilities/Error";
+import history from "../utilities/history";
+import Comments from "../components/Comments";
 import { startGetMovieDetails } from '../store/action/index';
 
 
@@ -17,6 +19,10 @@ const MovieDetails = (props) => {
             startGetMovieDetails(match.params.id);
         }
     }, [startGetMovieDetails, match.params.id]);
+
+    const addComment = (movieId) => {
+        history.push(`/comments/${movieId}/create`);
+    }
 
     return (
         <Fragment>
@@ -72,8 +78,11 @@ const MovieDetails = (props) => {
 
                                     </div>
                                     <h1 className="ui header">movieNerds Members Reviews</h1>
-                                    <div className="ui divider"></div>
-                                    <button type='button' className="ui blue button">ADD COMMNENT</button>
+                                    <div>
+                                        <Comments movieId={movieDetails.id}/>
+                                    </div>
+
+                                    <button onClick={() => addComment(movieDetails.id)} type='button' className="ui blue button">ADD COMMNENT</button>
 
                                 </div>
 
