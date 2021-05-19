@@ -126,7 +126,7 @@ const Registration = (props) => {
                                     <p className={`ui yellow ${showPasswordError} message`}>{passwordError}</p>
 
                                 </div>
-                                <button type="submit" className="ui button">SIGN IN</button>
+                                <button type="submit" className="ui button">REGISTER</button>
                                 <p className={`ui red ${showFormError} message header`}>{formError}</p>
                             </form>
                             <p className="ui header">Are you already a movieNerds Member? <Link to="/users/login">Sign in here</Link></p>
